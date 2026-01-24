@@ -1,0 +1,13 @@
+{
+  "fullscreenplus.config.customization.enabled": "啟用客製化",
+  "fullscreenplus.config.customization.related": "顯示器相對座標",
+  "fullscreenplus.config.customization.x": "X 座標",
+  "fullscreenplus.config.customization.y": "Y 座標",
+  "fullscreenplus.config.customization.width": "寬度",
+  "fullscreenplus.config.customization.height": "高度",
+  "fullscreenplus.option.apply": "套用",
+  "fullscreenplus.option.fullscreen_mode": "全螢幕模式",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "全螢幕模式決定了全螢幕功能要使用無邊框全螢幕還是原生全螢幕。",
+  "fullscreenplus.option.fullscreen_mode.borderless": "無邊框",
+  "fullscreenplus.option.fullscreen_mode.native": "原生"
+}

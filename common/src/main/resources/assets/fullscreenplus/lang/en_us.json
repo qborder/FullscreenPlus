@@ -1,0 +1,13 @@
+{
+  "fullscreenplus.config.customization.enabled": "Enable Customization",
+  "fullscreenplus.config.customization.related": "Monitor Relative Coordinates",
+  "fullscreenplus.config.customization.x": "X Coordinate",
+  "fullscreenplus.config.customization.y": "Y Coordinate",
+  "fullscreenplus.config.customization.width": "Width",
+  "fullscreenplus.config.customization.height": "Height",
+  "fullscreenplus.option.apply": "Apply",
+  "fullscreenplus.option.fullscreen_mode": "Fullscreen Mode",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Fullscreen mode determines the fullscreen function using borderless fullscreen or native fullscreen.",
+  "fullscreenplus.option.fullscreen_mode.borderless": "Borderless",
+  "fullscreenplus.option.fullscreen_mode.native": "Native"
+}

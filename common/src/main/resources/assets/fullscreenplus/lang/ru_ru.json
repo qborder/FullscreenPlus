@@ -1,0 +1,13 @@
+{
+  "fullscreenplus.config.customization.enabled": "Включить настройку",
+  "fullscreenplus.config.customization.related": "Отслеживать относительные координаты",
+  "fullscreenplus.config.customization.x": "Координата X",
+  "fullscreenplus.config.customization.y": "Координата Y",
+  "fullscreenplus.config.customization.width": "Ширина",
+  "fullscreenplus.config.customization.height": "Высота",
+  "fullscreenplus.option.apply": "Применить",
+  "fullscreenplus.option.fullscreen_mode": "Полноэкранный режим",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Определяет функцию полноэкранного режима: безрамочный режим или нативный полноэкранный режим.",
+  "fullscreenplus.option.fullscreen_mode.borderless": "Безрамочный",
+  "fullscreenplus.option.fullscreen_mode.native": "Нативный"
+}

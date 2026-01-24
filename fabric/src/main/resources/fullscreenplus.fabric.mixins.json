@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.itzplugins.fullscreenplus.fabric.mixin",
+  "refmap": "${mod_id}.refmap.json",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "plugin": "net.itzplugins.fullscreenplus.fabric.FullscreenPlusFabricMixinPlugin",
+  "client": [
+    "WindowMixin",
+    "VulkanWindowMixin",
+    "OptionsMixin",
+    "GLFWMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
+  

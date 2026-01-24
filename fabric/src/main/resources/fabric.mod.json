@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "sources": "https://modrinth.com/user/_itzplugins"
+  },
+  "license": "${license}",
+  "icon": "logo.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "net.itzplugins.fullscreenplus.fabric.FullscreenPlusFabric"
+    ],
+    "modmenu": [
+      "net.itzplugins.fullscreenplus.fabric.compat.ModMenuCompat"
+    ],
+    "sodium:config_api_user": [
+      "net.itzplugins.fullscreenplus.fabric.compat.SodiumConfigEntryPoint"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version_range}",
+    "java": ">=${java_version}"
+  },
+  "suggests": {
+    "sodium": ">=0.8.0"
+  }
+}
+  
