@@ -1,4 +1,9 @@
 {
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "Display",
+  "fullscreenplus.options.group.display": "Fullscreen",
+  "fullscreenplus.config.heading.mode": "Fullscreen Mode",
+  "fullscreenplus.config.heading.customization": "Custom Window Size",
   "fullscreenplus.config.customization.enabled": "Enable Customization",
   "fullscreenplus.config.customization.related": "Monitor Relative Coordinates",
   "fullscreenplus.config.customization.x": "X Coordinate",
@@ -7,7 +12,7 @@
   "fullscreenplus.config.customization.height": "Height",
   "fullscreenplus.option.apply": "Apply",
   "fullscreenplus.option.fullscreen_mode": "Fullscreen Mode",
-  "fullscreenplus.option.fullscreen_mode.tooltip": "Fullscreen mode determines the fullscreen function using borderless fullscreen or native fullscreen.",
-  "fullscreenplus.option.fullscreen_mode.borderless": "Borderless",
-  "fullscreenplus.option.fullscreen_mode.native": "Native"
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Choose how fullscreen works. Borderless lets you alt-tab without screen flickering. Native uses traditional exclusive fullscreen.",
+  "fullscreenplus.mode.borderless": "Borderless",
+  "fullscreenplus.mode.native": "Native"
 }
