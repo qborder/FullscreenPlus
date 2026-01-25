@@ -22,7 +22,7 @@ public class SodiumConfigEntryPoint implements ConfigEntryPoint {
     @Override
     public void registerConfigLate(ConfigBuilder builder) {
         builder.registerOwnModOptions()
-                .setIcon(Identifier.of("fullscreenplus", "logo.png"))
+                .setIcon(Identifier.of("fullscreenplus", "textures/gui/icon.png"))
                 .addPage(builder.createOptionPage()
                         .setName(Text.translatable("fullscreenplus.options.title"))
                         .addOptionGroup(builder.createOptionGroup()

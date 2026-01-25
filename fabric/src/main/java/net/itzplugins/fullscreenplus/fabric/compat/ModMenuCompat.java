@@ -49,17 +49,17 @@ public class ModMenuCompat implements ModMenuApi {
 
                     addHeading(Text.translatable("fullscreenplus.config.heading.customization"));
 
-                    addOption(SimpleOption.ofBoolean(
-                            "fullscreenplus.config.customization.enabled",
-                            config.customized,
+                    addBooleanOption(
+                            Text.translatable("fullscreenplus.config.customization.enabled"),
+                            () -> config.customized,
                             value -> config.customized = value
-                    ));
+                    );
 
-                    addOption(SimpleOption.ofBoolean(
-                            "fullscreenplus.config.customization.related",
-                            config.related,
+                    addBooleanOption(
+                            Text.translatable("fullscreenplus.config.customization.related"),
+                            () -> config.related,
                             value -> config.related = value
-                    ));
+                    );
 
                     addIntField(
                             Text.translatable("fullscreenplus.config.customization.x"),

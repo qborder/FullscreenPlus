@@ -9,6 +9,7 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,10 @@ import java.util.function.Supplier;
 public abstract class FullscreenPlusConfigScreen extends Screen {
 
     private final Screen parent;
-    private final List<ClickableWidget> optionWidgets = new ArrayList<>();
-    private final List<IntFieldEntry> intFields = new ArrayList<>();
+    private final List<ClickableWidget> widgets = new ArrayList<>();
+    private final List<TextFieldWidget> textFields = new ArrayList<>();
+    private final List<TextFieldEntry> fieldEntries = new ArrayList<>();
+    private int currentY;
 
     protected FullscreenPlusConfigScreen(Text title, Screen parent) {
         super(title);
@@ -27,99 +30,98 @@ public abstract class FullscreenPlusConfigScreen extends Screen {
     }
 
     @Override
-    protected final void init() {
-        optionWidgets.clear();
-        intFields.clear();
+    protected void init() {
+        widgets.clear();
+        textFields.clear();
+        fieldEntries.clear();
+        currentY = 40;
+
         addElements();
 
-        int yStart = 48;
-        int spacing = 28;
-        for (int i = 0; i < optionWidgets.size(); i++) {
-            ClickableWidget widget = optionWidgets.get(i);
-            widget.setX(this.width / 2 - 155);
-            widget.setY(yStart + i * spacing);
-            addDrawableChild(widget);
+        for (ClickableWidget w : widgets) {
+            addDrawableChild(w);
+        }
+        for (TextFieldWidget tf : textFields) {
+            addDrawableChild(tf);
         }
 
-        addDrawableChild(
-                ButtonWidget.builder(Text.translatable("fullscreenplus.option.apply"), button -> {
-                            applyIntFields();
-                            save();
-                        })
-                        .position(this.width / 2 - 155, this.height - 28)
-                        .size(150, 20)
-                        .build()
-        );
-        addDrawableChild(
-                ButtonWidget.builder(ScreenTexts.DONE, button -> {
-                            applyIntFields();
-                            save();
-                            this.client.setScreen(parent);
-                        })
-                        .position(this.width / 2 + 5, this.height - 28)
-                        .size(150, 20)
-                        .build()
-        );
-    }
-
-    private void applyIntFields() {
-        for (IntFieldEntry entry : intFields) {
-            try {
-                int value = Integer.parseInt(entry.field.getText());
-                entry.setter.accept(value);
-            } catch (NumberFormatException ignored) {
-            }
-        }
+        addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button -> close())
+                .dimensions(this.width / 2 - 100, this.height - 27, 200, 20)
+                .build());
     }
 
     @Override
     public void close() {
-        applyIntFields();
+        for (TextFieldEntry entry : fieldEntries) {
+            try {
+                int val = Integer.parseInt(entry.field.getText());
+                entry.setter.accept(val);
+            } catch (NumberFormatException ignored) {}
+        }
         save();
         this.client.setScreen(parent);
     }
 
     public abstract void save();
+    public abstract void addElements();
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
-        context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 15, 0xFFFFFF);
 
-        for (IntFieldEntry entry : intFields) {
-            context.drawTextWithShadow(this.textRenderer, entry.label, entry.field.getX() - this.textRenderer.getWidth(entry.label) - 8, entry.field.getY() + 6, 0xAAAAAA);
+        for (TextFieldEntry entry : fieldEntries) {
+            context.drawTextWithShadow(this.textRenderer, entry.label, entry.field.getX() - this.textRenderer.getWidth(entry.label) - 10, entry.field.getY() + 6, 0xAAAAAA);
         }
     }
 
-    public abstract void addElements();
-
-    public void addOption(SimpleOption<?> opt) {
-        optionWidgets.add(opt.createWidget(MinecraftClient.getInstance().options, 0, 0, 310));
+    public void addOption(SimpleOption<?> option) {
+        ClickableWidget w = option.createWidget(MinecraftClient.getInstance().options, this.width / 2 - 155, currentY, 310);
+        widgets.add(w);
+        currentY += 25;
     }
 
     public void addHeading(Text text) {
-        ButtonWidget heading = ButtonWidget.builder(text, b -> {})
-                .size(310, 20)
+        currentY += 8;
+        ButtonWidget heading = ButtonWidget.builder(text.copy().formatted(Formatting.YELLOW), b -> {})
+                .dimensions(this.width / 2 - 155, currentY, 310, 20)
                 .build();
         heading.active = false;
-        optionWidgets.add(heading);
+        widgets.add(heading);
+        currentY += 28;
+    }
+
+    public void addBooleanOption(Text label, Supplier<Boolean> getter, Consumer<Boolean> setter) {
+        final boolean[] value = {getter.get()};
+        ButtonWidget btn = ButtonWidget.builder(getBoolText(label, value[0]), b -> {
+            value[0] = !value[0];
+            setter.accept(value[0]);
+            b.setMessage(getBoolText(label, value[0]));
+        }).dimensions(this.width / 2 - 155, currentY, 310, 20).build();
+        widgets.add(btn);
+        currentY += 25;
+    }
+
+    private Text getBoolText(Text label, boolean val) {
+        return Text.literal("").append(label).append(": ")
+                .append(val ? Text.literal("ON").formatted(Formatting.GREEN) : Text.literal("OFF").formatted(Formatting.RED));
     }
 
     public void addIntField(Text label, Supplier<Integer> getter, Consumer<Integer> setter) {
-        TextFieldWidget field = new TextFieldWidget(this.textRenderer, 0, 0, 100, 20, label);
+        TextFieldWidget field = new TextFieldWidget(this.textRenderer, this.width / 2 + 5, currentY, 150, 20, label);
         field.setText(String.valueOf(getter.get()));
-        field.setChangedListener(text -> {
+        field.setChangedListener(t -> {
             try {
-                Integer.parseInt(text);
-                field.setEditableColor(0xFFFFFF);
+                Integer.parseInt(t);
+                field.setEditableColor(0xE0E0E0);
             } catch (NumberFormatException e) {
-                field.setEditableColor(0xFF5555);
+                field.setEditableColor(0xFF6B6B);
             }
         });
-
-        intFields.add(new IntFieldEntry(label.getString(), field, setter));
-        optionWidgets.add(field);
+        textFields.add(field);
+        fieldEntries.add(new TextFieldEntry(label.getString(), field, setter));
+        currentY += 25;
     }
 
-    private record IntFieldEntry(String label, TextFieldWidget field, Consumer<Integer> setter) {}
+    private record TextFieldEntry(String label, TextFieldWidget field, Consumer<Integer> setter) {}
 }
