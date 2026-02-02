@@ -1,13 +1,65 @@
 {
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "Дисплей",
+  "fullscreenplus.options.group.display": "Полный экран",
+  "fullscreenplus.options.group.performance": "Производительность",
+  "fullscreenplus.options.group.window": "Окно",
+  "fullscreenplus.options.group.advanced": "Расширенные",
+
+  "fullscreenplus.config.heading.mode": "Полноэкранный режим",
+  "fullscreenplus.config.heading.customization": "Пользовательский размер окна",
+  "fullscreenplus.config.heading.performance": "Производительность",
+  "fullscreenplus.config.heading.window": "Управление окнами",
+  "fullscreenplus.config.heading.advanced": "Расширенные",
+
   "fullscreenplus.config.customization.enabled": "Включить настройку",
-  "fullscreenplus.config.customization.related": "Отслеживать относительные координаты",
+  "fullscreenplus.config.customization.enabled.tooltip": "Включить пользовательское положение и размер окна в безрамочном режиме.",
+  "fullscreenplus.config.customization.related": "Относительные координаты монитора",
+  "fullscreenplus.config.customization.related.tooltip": "Использовать координаты относительно монитора вместо абсолютного положения.",
   "fullscreenplus.config.customization.x": "Координата X",
   "fullscreenplus.config.customization.y": "Координата Y",
   "fullscreenplus.config.customization.width": "Ширина",
   "fullscreenplus.config.customization.height": "Высота",
+
+  "fullscreenplus.config.dynamic_resolution": "Динамическое разрешение",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "Рендеринг с меньшим внутренним разрешением для лучшей производительности при сохранении размера окна.",
+  "fullscreenplus.config.render_scale": "Масштаб рендеринга",
+  "fullscreenplus.config.render_scale.tooltip": "Процент от нативного разрешения. Ниже = лучшая производительность.",
+
+  "fullscreenplus.config.ultrawide_support": "Поддержка ультраширокого экрана",
+  "fullscreenplus.config.ultrawide_support.tooltip": "Включить специальную обработку для соотношений 21:9, 32:9 и других ультрашироких.",
+
+  "fullscreenplus.config.hdr_passthrough": "Проброс HDR",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "Разрешить прохождение HDR сигналов в безрамочном режиме. Требуется HDR монитор и Windows 11.",
+
+  "fullscreenplus.config.refresh_rate_override": "Переопределение частоты обновления",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "Принудительно использовать определённую частоту обновления вместо стандартной монитора.",
+  "fullscreenplus.config.refresh_rate": "Частота обновления",
+  "fullscreenplus.config.refresh_rate.tooltip": "Целевая частота обновления в Гц.",
+
+  "fullscreenplus.config.windowed_borderless": "Безрамочное окно",
+  "fullscreenplus.config.windowed_borderless.tooltip": "Использовать безрамочное окно пользовательского размера вместо полного экрана.",
+  "fullscreenplus.config.windowed_borderless_width": "Ширина окна",
+  "fullscreenplus.config.windowed_borderless_height": "Высота окна",
+
+  "fullscreenplus.config.window_title": "Пользовательский заголовок окна",
+  "fullscreenplus.config.window_title.tooltip": "Установить пользовательский заголовок окна. Оставьте пустым для стандартного.",
+
+  "fullscreenplus.config.low_latency": "Режим низкой задержки",
+  "fullscreenplus.config.low_latency.tooltip": "Уменьшить задержку ввода путём оптимизации композиции окна.",
+
+  "fullscreenplus.config.show_notifications": "Показывать уведомления",
+  "fullscreenplus.config.show_notifications.tooltip": "Показывать всплывающие уведомления при изменении полноэкранного режима.",
+
   "fullscreenplus.option.apply": "Применить",
   "fullscreenplus.option.fullscreen_mode": "Полноэкранный режим",
-  "fullscreenplus.option.fullscreen_mode.tooltip": "Определяет функцию полноэкранного режима: безрамочный режим или нативный полноэкранный режим.",
-  "fullscreenplus.option.fullscreen_mode.borderless": "Безрамочный",
-  "fullscreenplus.option.fullscreen_mode.native": "Нативный"
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Выберите как работает полный экран. Безрамочный позволяет Alt+Tab без мерцания. Нативный использует традиционный эксклюзивный полный экран.",
+
+  "fullscreenplus.mode.borderless": "Безрамочный",
+  "fullscreenplus.mode.native": "Нативный",
+  "fullscreenplus.mode.exclusive_borderless": "Эксклюзивный безрамочный",
+
+  "fullscreenplus.notification.mode_changed": "Полноэкранный режим: %s",
+  "fullscreenplus.notification.windowed": "Переключено в оконный режим",
+  "fullscreenplus.notification.settings_saved": "Настройки сохранены"
 }

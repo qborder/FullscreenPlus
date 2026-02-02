@@ -43,6 +43,33 @@ public class FullscreenPlusConfigFabric implements Config {
     public int height = 600;
     public FullscreenMode fullscreen = FullscreenMode.BORDERLESS;
 
+    public boolean dynamicResolution = false;
+    public int renderScale = 100;
+
+    public boolean ultrawideSupport = false;
+
+    public boolean hdrPassthrough = false;
+
+    public boolean refreshRateOverride = false;
+    public int refreshRate = 60;
+
+    public boolean windowedBorderless = false;
+    public int windowedBorderlessWidth = 1280;
+    public int windowedBorderlessHeight = 720;
+
+    public String windowPositionPreset = "default";
+    public String windowTitle = "";
+
+    public boolean lowLatencyMode = false;
+
+    public boolean showNotifications = true;
+
+    public int lastWindowX = 0;
+    public int lastWindowY = 0;
+    public int lastWindowWidth = 854;
+    public int lastWindowHeight = 480;
+    public boolean hasLastWindowState = false;
+
     @Override
     public FullscreenMode getFullscreenMode() {
         return this.fullscreen;

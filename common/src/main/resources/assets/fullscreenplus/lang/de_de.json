@@ -1,0 +1,65 @@
+{
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "Anzeige",
+  "fullscreenplus.options.group.display": "Vollbild",
+  "fullscreenplus.options.group.performance": "Leistung",
+  "fullscreenplus.options.group.window": "Fenster",
+  "fullscreenplus.options.group.advanced": "Erweitert",
+
+  "fullscreenplus.config.heading.mode": "Vollbildmodus",
+  "fullscreenplus.config.heading.customization": "Benutzerdefinierte Fenstergröße",
+  "fullscreenplus.config.heading.performance": "Leistung",
+  "fullscreenplus.config.heading.window": "Fensterverwaltung",
+  "fullscreenplus.config.heading.advanced": "Erweitert",
+
+  "fullscreenplus.config.customization.enabled": "Anpassung Aktivieren",
+  "fullscreenplus.config.customization.enabled.tooltip": "Benutzerdefinierte Fensterposition und -größe im randlosen Modus aktivieren.",
+  "fullscreenplus.config.customization.related": "Monitorrelative Koordinaten",
+  "fullscreenplus.config.customization.related.tooltip": "Koordinaten relativ zum Monitor statt absoluter Bildschirmposition verwenden.",
+  "fullscreenplus.config.customization.x": "X-Koordinate",
+  "fullscreenplus.config.customization.y": "Y-Koordinate",
+  "fullscreenplus.config.customization.width": "Breite",
+  "fullscreenplus.config.customization.height": "Höhe",
+
+  "fullscreenplus.config.dynamic_resolution": "Dynamische Auflösung",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "Mit niedrigerer interner Auflösung für bessere Leistung rendern bei gleichbleibender Fenstergröße.",
+  "fullscreenplus.config.render_scale": "Rendermaßstab",
+  "fullscreenplus.config.render_scale.tooltip": "Prozentsatz der nativen Auflösung. Niedriger = bessere Leistung.",
+
+  "fullscreenplus.config.ultrawide_support": "Ultrawide-Unterstützung",
+  "fullscreenplus.config.ultrawide_support.tooltip": "Spezielle Behandlung für 21:9, 32:9 und andere Ultrawide-Seitenverhältnisse aktivieren.",
+
+  "fullscreenplus.config.hdr_passthrough": "HDR-Durchleitung",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "HDR-Signale im randlosen Modus durchlassen. Erfordert HDR-fähigen Monitor und Windows 11.",
+
+  "fullscreenplus.config.refresh_rate_override": "Bildwiederholrate Überschreiben",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "Eine bestimmte Bildwiederholrate erzwingen statt die Standardeinstellung des Monitors zu verwenden.",
+  "fullscreenplus.config.refresh_rate": "Bildwiederholrate",
+  "fullscreenplus.config.refresh_rate.tooltip": "Ziel-Bildwiederholrate in Hz.",
+
+  "fullscreenplus.config.windowed_borderless": "Fenster Randlos",
+  "fullscreenplus.config.windowed_borderless.tooltip": "Randloses Fenster mit benutzerdefinierter Größe statt Vollbild verwenden.",
+  "fullscreenplus.config.windowed_borderless_width": "Fensterbreite",
+  "fullscreenplus.config.windowed_borderless_height": "Fensterhöhe",
+
+  "fullscreenplus.config.window_title": "Benutzerdefinierter Fenstertitel",
+  "fullscreenplus.config.window_title.tooltip": "Einen benutzerdefinierten Fenstertitel festlegen. Leer lassen für Standard.",
+
+  "fullscreenplus.config.low_latency": "Niedrige Latenz Modus",
+  "fullscreenplus.config.low_latency.tooltip": "Eingabeverzögerung durch Optimierung der Fensterkomposition reduzieren.",
+
+  "fullscreenplus.config.show_notifications": "Benachrichtigungen Anzeigen",
+  "fullscreenplus.config.show_notifications.tooltip": "Toast-Benachrichtigungen anzeigen wenn sich der Vollbildmodus ändert.",
+
+  "fullscreenplus.option.apply": "Anwenden",
+  "fullscreenplus.option.fullscreen_mode": "Vollbildmodus",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Wählen Sie wie Vollbild funktioniert. Randlos ermöglicht Alt-Tab ohne Bildschirmflackern. Nativ verwendet traditionelles exklusives Vollbild.",
+
+  "fullscreenplus.mode.borderless": "Randlos",
+  "fullscreenplus.mode.native": "Nativ",
+  "fullscreenplus.mode.exclusive_borderless": "Exklusiv Randlos",
+
+  "fullscreenplus.notification.mode_changed": "Vollbildmodus: %s",
+  "fullscreenplus.notification.windowed": "Zu Fenstermodus gewechselt",
+  "fullscreenplus.notification.settings_saved": "Einstellungen gespeichert"
+}

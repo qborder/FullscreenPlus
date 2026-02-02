@@ -1,0 +1,65 @@
+{
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "Affichage",
+  "fullscreenplus.options.group.display": "Plein Écran",
+  "fullscreenplus.options.group.performance": "Performance",
+  "fullscreenplus.options.group.window": "Fenêtre",
+  "fullscreenplus.options.group.advanced": "Avancé",
+
+  "fullscreenplus.config.heading.mode": "Mode Plein Écran",
+  "fullscreenplus.config.heading.customization": "Taille de Fenêtre Personnalisée",
+  "fullscreenplus.config.heading.performance": "Performance",
+  "fullscreenplus.config.heading.window": "Gestion des Fenêtres",
+  "fullscreenplus.config.heading.advanced": "Avancé",
+
+  "fullscreenplus.config.customization.enabled": "Activer la Personnalisation",
+  "fullscreenplus.config.customization.enabled.tooltip": "Activer la position et taille de fenêtre personnalisées en mode sans bordure.",
+  "fullscreenplus.config.customization.related": "Coordonnées Relatives au Moniteur",
+  "fullscreenplus.config.customization.related.tooltip": "Utiliser des coordonnées relatives au moniteur au lieu de la position absolue.",
+  "fullscreenplus.config.customization.x": "Coordonnée X",
+  "fullscreenplus.config.customization.y": "Coordonnée Y",
+  "fullscreenplus.config.customization.width": "Largeur",
+  "fullscreenplus.config.customization.height": "Hauteur",
+
+  "fullscreenplus.config.dynamic_resolution": "Résolution Dynamique",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "Rendre à une résolution interne inférieure pour de meilleures performances tout en maintenant la taille de la fenêtre.",
+  "fullscreenplus.config.render_scale": "Échelle de Rendu",
+  "fullscreenplus.config.render_scale.tooltip": "Pourcentage de la résolution native. Plus bas = meilleures performances.",
+
+  "fullscreenplus.config.ultrawide_support": "Support Ultrawide",
+  "fullscreenplus.config.ultrawide_support.tooltip": "Activer le traitement spécial pour les ratios 21:9, 32:9 et autres ultrawide.",
+
+  "fullscreenplus.config.hdr_passthrough": "Passage HDR",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "Permettre le passage des signaux HDR en mode sans bordure. Nécessite un moniteur HDR et Windows 11.",
+
+  "fullscreenplus.config.refresh_rate_override": "Forcer le Taux de Rafraîchissement",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "Forcer un taux de rafraîchissement spécifique au lieu d'utiliser celui par défaut du moniteur.",
+  "fullscreenplus.config.refresh_rate": "Taux de Rafraîchissement",
+  "fullscreenplus.config.refresh_rate.tooltip": "Taux de rafraîchissement cible en Hz.",
+
+  "fullscreenplus.config.windowed_borderless": "Fenêtre Sans Bordure",
+  "fullscreenplus.config.windowed_borderless.tooltip": "Utiliser une fenêtre sans bordure avec taille personnalisée au lieu du plein écran.",
+  "fullscreenplus.config.windowed_borderless_width": "Largeur de Fenêtre",
+  "fullscreenplus.config.windowed_borderless_height": "Hauteur de Fenêtre",
+
+  "fullscreenplus.config.window_title": "Titre de Fenêtre Personnalisé",
+  "fullscreenplus.config.window_title.tooltip": "Définir un titre de fenêtre personnalisé. Laisser vide pour le défaut.",
+
+  "fullscreenplus.config.low_latency": "Mode Faible Latence",
+  "fullscreenplus.config.low_latency.tooltip": "Réduire le délai d'entrée en optimisant la composition de la fenêtre.",
+
+  "fullscreenplus.config.show_notifications": "Afficher les Notifications",
+  "fullscreenplus.config.show_notifications.tooltip": "Afficher des notifications toast lorsque le mode plein écran change.",
+
+  "fullscreenplus.option.apply": "Appliquer",
+  "fullscreenplus.option.fullscreen_mode": "Mode Plein Écran",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Choisissez comment fonctionne le plein écran. Sans bordure permet alt-tab sans scintillement. Natif utilise le plein écran exclusif traditionnel.",
+
+  "fullscreenplus.mode.borderless": "Sans Bordure",
+  "fullscreenplus.mode.native": "Natif",
+  "fullscreenplus.mode.exclusive_borderless": "Sans Bordure Exclusif",
+
+  "fullscreenplus.notification.mode_changed": "Mode plein écran: %s",
+  "fullscreenplus.notification.windowed": "Passé en mode fenêtré",
+  "fullscreenplus.notification.settings_saved": "Paramètres sauvegardés"
+}

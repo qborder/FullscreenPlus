@@ -1,0 +1,65 @@
+{
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "Tela",
+  "fullscreenplus.options.group.display": "Tela Cheia",
+  "fullscreenplus.options.group.performance": "Desempenho",
+  "fullscreenplus.options.group.window": "Janela",
+  "fullscreenplus.options.group.advanced": "Avançado",
+
+  "fullscreenplus.config.heading.mode": "Modo de Tela Cheia",
+  "fullscreenplus.config.heading.customization": "Tamanho de Janela Personalizado",
+  "fullscreenplus.config.heading.performance": "Desempenho",
+  "fullscreenplus.config.heading.window": "Gerenciamento de Janelas",
+  "fullscreenplus.config.heading.advanced": "Avançado",
+
+  "fullscreenplus.config.customization.enabled": "Ativar Personalização",
+  "fullscreenplus.config.customization.enabled.tooltip": "Ativar posição e tamanho de janela personalizado no modo sem bordas.",
+  "fullscreenplus.config.customization.related": "Coordenadas Relativas ao Monitor",
+  "fullscreenplus.config.customization.related.tooltip": "Usar coordenadas relativas ao monitor em vez de posição absoluta.",
+  "fullscreenplus.config.customization.x": "Coordenada X",
+  "fullscreenplus.config.customization.y": "Coordenada Y",
+  "fullscreenplus.config.customization.width": "Largura",
+  "fullscreenplus.config.customization.height": "Altura",
+
+  "fullscreenplus.config.dynamic_resolution": "Resolução Dinâmica",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "Renderizar em resolução interna menor para melhor desempenho mantendo o tamanho da janela.",
+  "fullscreenplus.config.render_scale": "Escala de Renderização",
+  "fullscreenplus.config.render_scale.tooltip": "Porcentagem da resolução nativa. Menor = melhor desempenho.",
+
+  "fullscreenplus.config.ultrawide_support": "Suporte Ultrawide",
+  "fullscreenplus.config.ultrawide_support.tooltip": "Ativar tratamento especial para proporções 21:9, 32:9 e outros ultrawide.",
+
+  "fullscreenplus.config.hdr_passthrough": "Passagem HDR",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "Permitir sinais HDR no modo sem bordas. Requer monitor HDR e Windows 11.",
+
+  "fullscreenplus.config.refresh_rate_override": "Substituir Taxa de Atualização",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "Forçar uma taxa de atualização específica em vez de usar a padrão do monitor.",
+  "fullscreenplus.config.refresh_rate": "Taxa de Atualização",
+  "fullscreenplus.config.refresh_rate.tooltip": "Taxa de atualização alvo em Hz.",
+
+  "fullscreenplus.config.windowed_borderless": "Janela Sem Bordas",
+  "fullscreenplus.config.windowed_borderless.tooltip": "Usar janela sem bordas com tamanho personalizado em vez de tela cheia.",
+  "fullscreenplus.config.windowed_borderless_width": "Largura da Janela",
+  "fullscreenplus.config.windowed_borderless_height": "Altura da Janela",
+
+  "fullscreenplus.config.window_title": "Título da Janela Personalizado",
+  "fullscreenplus.config.window_title.tooltip": "Definir um título de janela personalizado. Deixe vazio para padrão.",
+
+  "fullscreenplus.config.low_latency": "Modo Baixa Latência",
+  "fullscreenplus.config.low_latency.tooltip": "Reduzir atraso de entrada otimizando a composição da janela.",
+
+  "fullscreenplus.config.show_notifications": "Mostrar Notificações",
+  "fullscreenplus.config.show_notifications.tooltip": "Mostrar notificações quando o modo de tela cheia mudar.",
+
+  "fullscreenplus.option.apply": "Aplicar",
+  "fullscreenplus.option.fullscreen_mode": "Modo de Tela Cheia",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Escolha como a tela cheia funciona. Sem bordas permite alt-tab sem tremulação. Nativo usa tela cheia exclusiva tradicional.",
+
+  "fullscreenplus.mode.borderless": "Sem Bordas",
+  "fullscreenplus.mode.native": "Nativo",
+  "fullscreenplus.mode.exclusive_borderless": "Sem Bordas Exclusivo",
+
+  "fullscreenplus.notification.mode_changed": "Modo de tela: %s",
+  "fullscreenplus.notification.windowed": "Mudou para modo janela",
+  "fullscreenplus.notification.settings_saved": "Configurações salvas"
+}

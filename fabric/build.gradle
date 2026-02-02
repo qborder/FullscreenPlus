@@ -11,6 +11,10 @@ repositories {
         name = "CaffeineMC"
         url = "https://maven.caffeinemc.net/releases"
     }
+    maven {
+        name = "Gegy"
+        url = uri("https://maven.gegy.dev")
+    }
 }
 
 dependencies {
@@ -22,6 +26,8 @@ dependencies {
     modImplementation "maven.modrinth:modmenu:17.0.0-beta.2"
     modImplementation "net.caffeinemc:sodium-fabric-api:0.8.0+mc1.21.11"
     modCompileOnly "maven.modrinth:vulkanmod:0.4.3-fabric,1.21"
+
+    include(modImplementation("dev.lambdaurora:spruceui:8.0.4+1.21.8"))
 }
 
 loom {

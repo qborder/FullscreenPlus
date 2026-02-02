@@ -1,0 +1,65 @@
+{
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "디스플레이",
+  "fullscreenplus.options.group.display": "전체 화면",
+  "fullscreenplus.options.group.performance": "성능",
+  "fullscreenplus.options.group.window": "창",
+  "fullscreenplus.options.group.advanced": "고급",
+
+  "fullscreenplus.config.heading.mode": "전체 화면 모드",
+  "fullscreenplus.config.heading.customization": "사용자 정의 창 크기",
+  "fullscreenplus.config.heading.performance": "성능",
+  "fullscreenplus.config.heading.window": "창 관리",
+  "fullscreenplus.config.heading.advanced": "고급",
+
+  "fullscreenplus.config.customization.enabled": "사용자 정의 활성화",
+  "fullscreenplus.config.customization.enabled.tooltip": "테두리 없는 모드에서 사용자 정의 창 위치와 크기를 활성화합니다.",
+  "fullscreenplus.config.customization.related": "모니터 상대 좌표",
+  "fullscreenplus.config.customization.related.tooltip": "절대 화면 위치 대신 모니터 상대 좌표를 사용합니다.",
+  "fullscreenplus.config.customization.x": "X 좌표",
+  "fullscreenplus.config.customization.y": "Y 좌표",
+  "fullscreenplus.config.customization.width": "너비",
+  "fullscreenplus.config.customization.height": "높이",
+
+  "fullscreenplus.config.dynamic_resolution": "동적 해상도",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "창 크기를 유지하면서 낮은 내부 해상도로 렌더링하여 성능을 향상시킵니다.",
+  "fullscreenplus.config.render_scale": "렌더 스케일",
+  "fullscreenplus.config.render_scale.tooltip": "네이티브 해상도의 백분율. 낮을수록 성능 향상.",
+
+  "fullscreenplus.config.ultrawide_support": "울트라와이드 지원",
+  "fullscreenplus.config.ultrawide_support.tooltip": "21:9, 32:9 및 기타 울트라와이드 화면비에 대한 특별 처리를 활성화합니다.",
+
+  "fullscreenplus.config.hdr_passthrough": "HDR 패스스루",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "테두리 없는 모드에서 HDR 신호를 통과시킵니다. HDR 지원 모니터와 Windows 11이 필요합니다.",
+
+  "fullscreenplus.config.refresh_rate_override": "새로 고침 빈도 재정의",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "모니터 기본값 대신 특정 새로 고침 빈도를 강제합니다.",
+  "fullscreenplus.config.refresh_rate": "새로 고침 빈도",
+  "fullscreenplus.config.refresh_rate.tooltip": "목표 새로 고침 빈도(Hz).",
+
+  "fullscreenplus.config.windowed_borderless": "창 테두리 없음",
+  "fullscreenplus.config.windowed_borderless.tooltip": "전체 화면 대신 사용자 정의 크기의 테두리 없는 창을 사용합니다.",
+  "fullscreenplus.config.windowed_borderless_width": "창 너비",
+  "fullscreenplus.config.windowed_borderless_height": "창 높이",
+
+  "fullscreenplus.config.window_title": "사용자 정의 창 제목",
+  "fullscreenplus.config.window_title.tooltip": "사용자 정의 창 제목을 설정합니다. 기본값은 비워 두세요.",
+
+  "fullscreenplus.config.low_latency": "저지연 모드",
+  "fullscreenplus.config.low_latency.tooltip": "창 합성을 최적화하여 입력 지연을 줄입니다.",
+
+  "fullscreenplus.config.show_notifications": "알림 표시",
+  "fullscreenplus.config.show_notifications.tooltip": "전체 화면 모드가 변경될 때 토스트 알림을 표시합니다.",
+
+  "fullscreenplus.option.apply": "적용",
+  "fullscreenplus.option.fullscreen_mode": "전체 화면 모드",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "전체 화면 작동 방식을 선택합니다. 테두리 없음은 화면 깜빡임 없이 Alt+Tab이 가능합니다. 네이티브는 전통적인 배타적 전체 화면을 사용합니다.",
+
+  "fullscreenplus.mode.borderless": "테두리 없음",
+  "fullscreenplus.mode.native": "네이티브",
+  "fullscreenplus.mode.exclusive_borderless": "배타적 테두리 없음",
+
+  "fullscreenplus.notification.mode_changed": "전체 화면 모드: %s",
+  "fullscreenplus.notification.windowed": "창 모드로 전환됨",
+  "fullscreenplus.notification.settings_saved": "설정 저장됨"
+}

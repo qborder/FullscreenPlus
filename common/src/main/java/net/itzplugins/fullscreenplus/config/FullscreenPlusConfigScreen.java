@@ -22,6 +22,7 @@ public abstract class FullscreenPlusConfigScreen extends Screen {
     private final List<ClickableWidget> widgets = new ArrayList<>();
     private final List<TextFieldWidget> textFields = new ArrayList<>();
     private final List<TextFieldEntry> fieldEntries = new ArrayList<>();
+    private final List<StringFieldEntry> stringFieldEntries = new ArrayList<>();
     private int currentY;
 
     protected FullscreenPlusConfigScreen(Text title, Screen parent) {
@@ -34,6 +35,7 @@ public abstract class FullscreenPlusConfigScreen extends Screen {
         widgets.clear();
         textFields.clear();
         fieldEntries.clear();
+        stringFieldEntries.clear();
         currentY = 40;
 
         addElements();
@@ -56,13 +58,15 @@ public abstract class FullscreenPlusConfigScreen extends Screen {
             try {
                 int val = Integer.parseInt(entry.field.getText());
                 entry.setter.accept(val);
-            } catch (NumberFormatException ignored) {}
+            } catch (NumberFormatException ignored) {
+            }
         }
         save();
         this.client.setScreen(parent);
     }
 
     public abstract void save();
+
     public abstract void addElements();
 
     @Override
@@ -71,19 +75,23 @@ public abstract class FullscreenPlusConfigScreen extends Screen {
         context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 15, 0xFFFFFF);
 
         for (TextFieldEntry entry : fieldEntries) {
-            context.drawTextWithShadow(this.textRenderer, entry.label, entry.field.getX() - this.textRenderer.getWidth(entry.label) - 10, entry.field.getY() + 6, 0xAAAAAA);
+            context.drawTextWithShadow(this.textRenderer, entry.label,
+                    entry.field.getX() - this.textRenderer.getWidth(entry.label) - 10, entry.field.getY() + 6,
+                    0xAAAAAA);
         }
     }
 
     public void addOption(SimpleOption<?> option) {
-        ClickableWidget w = option.createWidget(MinecraftClient.getInstance().options, this.width / 2 - 155, currentY, 310);
+        ClickableWidget w = option.createWidget(MinecraftClient.getInstance().options, this.width / 2 - 155, currentY,
+                310);
         widgets.add(w);
         currentY += 25;
     }
 
     public void addHeading(Text text) {
         currentY += 8;
-        ButtonWidget heading = ButtonWidget.builder(text.copy().formatted(Formatting.YELLOW), b -> {})
+        ButtonWidget heading = ButtonWidget.builder(text.copy().formatted(Formatting.YELLOW), b -> {
+        })
                 .dimensions(this.width / 2 - 155, currentY, 310, 20)
                 .build();
         heading.active = false;
@@ -92,7 +100,7 @@ public abstract class FullscreenPlusConfigScreen extends Screen {
     }
 
     public void addBooleanOption(Text label, Supplier<Boolean> getter, Consumer<Boolean> setter) {
-        final boolean[] value = {getter.get()};
+        final boolean[] value = { getter.get() };
         ButtonWidget btn = ButtonWidget.builder(getBoolText(label, value[0]), b -> {
             value[0] = !value[0];
             setter.accept(value[0]);
@@ -104,7 +112,8 @@ public abstract class FullscreenPlusConfigScreen extends Screen {
 
     private Text getBoolText(Text label, boolean val) {
         return Text.literal("").append(label).append(": ")
-                .append(val ? Text.literal("ON").formatted(Formatting.GREEN) : Text.literal("OFF").formatted(Formatting.RED));
+                .append(val ? Text.literal("ON").formatted(Formatting.GREEN)
+                        : Text.literal("OFF").formatted(Formatting.RED));
     }
 
     public void addIntField(Text label, Supplier<Integer> getter, Consumer<Integer> setter) {
@@ -123,5 +132,32 @@ public abstract class FullscreenPlusConfigScreen extends Screen {
         currentY += 25;
     }
 
-    private record TextFieldEntry(String label, TextFieldWidget field, Consumer<Integer> setter) {}
+    public void addStringField(Text label, Supplier<String> getter, Consumer<String> setter) {
+        TextFieldWidget field = new TextFieldWidget(this.textRenderer, this.width / 2 + 5, currentY, 150, 20, label);
+        field.setText(getter.get() != null ? getter.get() : "");
+        field.setMaxLength(100);
+        field.setChangedListener(setter::accept);
+        textFields.add(field);
+        stringFieldEntries.add(new StringFieldEntry(label.getString(), field));
+        currentY += 25;
+    }
+
+    public void addSlider(Text label, int min, int max, Supplier<Integer> getter, Consumer<Integer> setter) {
+        double initial = (getter.get() - min) / (double) (max - min);
+        final int[] currentValue = { getter.get() };
+
+        ButtonWidget slider = ButtonWidget.builder(
+                Text.literal("").append(label).append(": ").append(Text.literal(String.valueOf(currentValue[0]))),
+                b -> {
+                }).dimensions(this.width / 2 - 155, currentY, 310, 20).build();
+
+        widgets.add(slider);
+        currentY += 25;
+    }
+
+    private record TextFieldEntry(String label, TextFieldWidget field, Consumer<Integer> setter) {
+    }
+
+    private record StringFieldEntry(String label, TextFieldWidget field) {
+    }
 }

@@ -1,0 +1,65 @@
+{
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "Pantalla",
+  "fullscreenplus.options.group.display": "Pantalla Completa",
+  "fullscreenplus.options.group.performance": "Rendimiento",
+  "fullscreenplus.options.group.window": "Ventana",
+  "fullscreenplus.options.group.advanced": "Avanzado",
+
+  "fullscreenplus.config.heading.mode": "Modo de Pantalla Completa",
+  "fullscreenplus.config.heading.customization": "Tamaño de Ventana Personalizado",
+  "fullscreenplus.config.heading.performance": "Rendimiento",
+  "fullscreenplus.config.heading.window": "Gestión de Ventanas",
+  "fullscreenplus.config.heading.advanced": "Avanzado",
+
+  "fullscreenplus.config.customization.enabled": "Habilitar Personalización",
+  "fullscreenplus.config.customization.enabled.tooltip": "Habilitar posición y tamaño de ventana personalizado en modo sin bordes.",
+  "fullscreenplus.config.customization.related": "Coordenadas Relativas al Monitor",
+  "fullscreenplus.config.customization.related.tooltip": "Usar coordenadas relativas al monitor en lugar de posición absoluta.",
+  "fullscreenplus.config.customization.x": "Coordenada X",
+  "fullscreenplus.config.customization.y": "Coordenada Y",
+  "fullscreenplus.config.customization.width": "Ancho",
+  "fullscreenplus.config.customization.height": "Alto",
+
+  "fullscreenplus.config.dynamic_resolution": "Resolución Dinámica",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "Renderizar a menor resolución interna para mejor rendimiento manteniendo el tamaño de ventana.",
+  "fullscreenplus.config.render_scale": "Escala de Renderizado",
+  "fullscreenplus.config.render_scale.tooltip": "Porcentaje de la resolución nativa. Menor = mejor rendimiento.",
+
+  "fullscreenplus.config.ultrawide_support": "Soporte Ultrawide",
+  "fullscreenplus.config.ultrawide_support.tooltip": "Habilitar manejo especial para relaciones de aspecto 21:9, 32:9 y otros ultrawide.",
+
+  "fullscreenplus.config.hdr_passthrough": "Paso de HDR",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "Permitir señales HDR en modo sin bordes. Requiere monitor HDR y Windows 11.",
+
+  "fullscreenplus.config.refresh_rate_override": "Anular Tasa de Refresco",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "Forzar una tasa de refresco específica en lugar de usar la predeterminada del monitor.",
+  "fullscreenplus.config.refresh_rate": "Tasa de Refresco",
+  "fullscreenplus.config.refresh_rate.tooltip": "Tasa de refresco objetivo en Hz.",
+
+  "fullscreenplus.config.windowed_borderless": "Ventana Sin Bordes",
+  "fullscreenplus.config.windowed_borderless.tooltip": "Usar ventana sin bordes con tamaño personalizado en lugar de pantalla completa.",
+  "fullscreenplus.config.windowed_borderless_width": "Ancho de Ventana",
+  "fullscreenplus.config.windowed_borderless_height": "Alto de Ventana",
+
+  "fullscreenplus.config.window_title": "Título de Ventana Personalizado",
+  "fullscreenplus.config.window_title.tooltip": "Establecer un título de ventana personalizado. Dejar vacío para predeterminado.",
+
+  "fullscreenplus.config.low_latency": "Modo Baja Latencia",
+  "fullscreenplus.config.low_latency.tooltip": "Reducir el retraso de entrada optimizando la composición de ventana.",
+
+  "fullscreenplus.config.show_notifications": "Mostrar Notificaciones",
+  "fullscreenplus.config.show_notifications.tooltip": "Mostrar notificaciones cuando cambie el modo de pantalla completa.",
+
+  "fullscreenplus.option.apply": "Aplicar",
+  "fullscreenplus.option.fullscreen_mode": "Modo de Pantalla Completa",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Elige cómo funciona la pantalla completa. Sin bordes permite alt-tab sin parpadeo. Nativo usa pantalla completa exclusiva tradicional.",
+
+  "fullscreenplus.mode.borderless": "Sin Bordes",
+  "fullscreenplus.mode.native": "Nativo",
+  "fullscreenplus.mode.exclusive_borderless": "Sin Bordes Exclusivo",
+
+  "fullscreenplus.notification.mode_changed": "Modo de pantalla: %s",
+  "fullscreenplus.notification.windowed": "Cambiado a modo ventana",
+  "fullscreenplus.notification.settings_saved": "Configuración guardada"
+}

@@ -2,17 +2,64 @@
   "fullscreenplus.name": "Fullscreen+",
   "fullscreenplus.options.title": "Display",
   "fullscreenplus.options.group.display": "Fullscreen",
+  "fullscreenplus.options.group.performance": "Performance",
+  "fullscreenplus.options.group.window": "Window",
+  "fullscreenplus.options.group.advanced": "Advanced",
+
   "fullscreenplus.config.heading.mode": "Fullscreen Mode",
   "fullscreenplus.config.heading.customization": "Custom Window Size",
+  "fullscreenplus.config.heading.performance": "Performance",
+  "fullscreenplus.config.heading.window": "Window Management",
+  "fullscreenplus.config.heading.advanced": "Advanced",
+
   "fullscreenplus.config.customization.enabled": "Enable Customization",
+  "fullscreenplus.config.customization.enabled.tooltip": "Enable custom window position and size when in borderless mode.",
   "fullscreenplus.config.customization.related": "Monitor Relative Coordinates",
+  "fullscreenplus.config.customization.related.tooltip": "Use coordinates relative to the monitor instead of absolute screen position.",
   "fullscreenplus.config.customization.x": "X Coordinate",
   "fullscreenplus.config.customization.y": "Y Coordinate",
   "fullscreenplus.config.customization.width": "Width",
   "fullscreenplus.config.customization.height": "Height",
+
+  "fullscreenplus.config.dynamic_resolution": "Dynamic Resolution",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "Render at a lower internal resolution for better performance while maintaining window size.",
+  "fullscreenplus.config.render_scale": "Render Scale",
+  "fullscreenplus.config.render_scale.tooltip": "Percentage of native resolution to render at. Lower = better performance.",
+
+  "fullscreenplus.config.ultrawide_support": "Ultrawide Support",
+  "fullscreenplus.config.ultrawide_support.tooltip": "Enable special handling for 21:9, 32:9 and other ultrawide aspect ratios.",
+
+  "fullscreenplus.config.hdr_passthrough": "HDR Passthrough",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "Allow HDR signals to pass through in borderless mode. Requires HDR-capable monitor and Windows 11.",
+
+  "fullscreenplus.config.refresh_rate_override": "Refresh Rate Override",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "Force a specific refresh rate instead of using monitor default.",
+  "fullscreenplus.config.refresh_rate": "Refresh Rate",
+  "fullscreenplus.config.refresh_rate.tooltip": "Target refresh rate in Hz.",
+
+  "fullscreenplus.config.windowed_borderless": "Windowed Borderless",
+  "fullscreenplus.config.windowed_borderless.tooltip": "Use borderless window at a custom size instead of fullscreen.",
+  "fullscreenplus.config.windowed_borderless_width": "Windowed Width",
+  "fullscreenplus.config.windowed_borderless_height": "Windowed Height",
+
+  "fullscreenplus.config.window_title": "Custom Window Title",
+  "fullscreenplus.config.window_title.tooltip": "Set a custom window title. Leave empty for default.",
+
+  "fullscreenplus.config.low_latency": "Low Latency Mode",
+  "fullscreenplus.config.low_latency.tooltip": "Reduce input lag by optimizing window composition. May increase CPU usage slightly.",
+
+  "fullscreenplus.config.show_notifications": "Show Notifications",
+  "fullscreenplus.config.show_notifications.tooltip": "Show toast notifications when fullscreen mode changes.",
+
   "fullscreenplus.option.apply": "Apply",
   "fullscreenplus.option.fullscreen_mode": "Fullscreen Mode",
-  "fullscreenplus.option.fullscreen_mode.tooltip": "Choose how fullscreen works. Borderless lets you alt-tab without screen flickering. Native uses traditional exclusive fullscreen.",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "Choose how fullscreen works. Borderless lets you alt-tab without screen flickering. Native uses traditional exclusive fullscreen. Exclusive Borderless combines both benefits.",
+
   "fullscreenplus.mode.borderless": "Borderless",
-  "fullscreenplus.mode.native": "Native"
+  "fullscreenplus.mode.native": "Native",
+  "fullscreenplus.mode.exclusive_borderless": "Exclusive Borderless",
+
+  "fullscreenplus.notification.mode_changed": "Fullscreen mode: %s",
+  "fullscreenplus.notification.windowed": "Switched to windowed mode",
+  "fullscreenplus.notification.settings_saved": "Settings saved"
 }

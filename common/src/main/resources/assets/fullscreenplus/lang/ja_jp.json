@@ -1,0 +1,65 @@
+{
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "ディスプレイ",
+  "fullscreenplus.options.group.display": "フルスクリーン",
+  "fullscreenplus.options.group.performance": "パフォーマンス",
+  "fullscreenplus.options.group.window": "ウィンドウ",
+  "fullscreenplus.options.group.advanced": "詳細設定",
+
+  "fullscreenplus.config.heading.mode": "フルスクリーンモード",
+  "fullscreenplus.config.heading.customization": "カスタムウィンドウサイズ",
+  "fullscreenplus.config.heading.performance": "パフォーマンス",
+  "fullscreenplus.config.heading.window": "ウィンドウ管理",
+  "fullscreenplus.config.heading.advanced": "詳細設定",
+
+  "fullscreenplus.config.customization.enabled": "カスタマイズを有効にする",
+  "fullscreenplus.config.customization.enabled.tooltip": "ボーダーレスモードでカスタムウィンドウ位置とサイズを有効にします。",
+  "fullscreenplus.config.customization.related": "モニター相対座標",
+  "fullscreenplus.config.customization.related.tooltip": "絶対画面位置の代わりにモニター相対座標を使用します。",
+  "fullscreenplus.config.customization.x": "X座標",
+  "fullscreenplus.config.customization.y": "Y座標",
+  "fullscreenplus.config.customization.width": "幅",
+  "fullscreenplus.config.customization.height": "高さ",
+
+  "fullscreenplus.config.dynamic_resolution": "動的解像度",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "ウィンドウサイズを維持しながら、低い内部解像度でレンダリングしてパフォーマンスを向上させます。",
+  "fullscreenplus.config.render_scale": "レンダースケール",
+  "fullscreenplus.config.render_scale.tooltip": "ネイティブ解像度のパーセンテージ。低い = パフォーマンス向上。",
+
+  "fullscreenplus.config.ultrawide_support": "ウルトラワイドサポート",
+  "fullscreenplus.config.ultrawide_support.tooltip": "21:9、32:9などのウルトラワイドアスペクト比の特別処理を有効にします。",
+
+  "fullscreenplus.config.hdr_passthrough": "HDRパススルー",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "ボーダーレスモードでHDR信号を通過させます。HDR対応モニターとWindows 11が必要です。",
+
+  "fullscreenplus.config.refresh_rate_override": "リフレッシュレート上書き",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "モニターのデフォルトの代わりに特定のリフレッシュレートを強制します。",
+  "fullscreenplus.config.refresh_rate": "リフレッシュレート",
+  "fullscreenplus.config.refresh_rate.tooltip": "目標リフレッシュレート（Hz）。",
+
+  "fullscreenplus.config.windowed_borderless": "ウィンドウボーダーレス",
+  "fullscreenplus.config.windowed_borderless.tooltip": "フルスクリーンの代わりにカスタムサイズのボーダーレスウィンドウを使用します。",
+  "fullscreenplus.config.windowed_borderless_width": "ウィンドウ幅",
+  "fullscreenplus.config.windowed_borderless_height": "ウィンドウ高さ",
+
+  "fullscreenplus.config.window_title": "カスタムウィンドウタイトル",
+  "fullscreenplus.config.window_title.tooltip": "カスタムウィンドウタイトルを設定します。空欄でデフォルト。",
+
+  "fullscreenplus.config.low_latency": "低遅延モード",
+  "fullscreenplus.config.low_latency.tooltip": "ウィンドウ合成を最適化して入力遅延を減少させます。",
+
+  "fullscreenplus.config.show_notifications": "通知を表示",
+  "fullscreenplus.config.show_notifications.tooltip": "フルスクリーンモードが変更されたときにトースト通知を表示します。",
+
+  "fullscreenplus.option.apply": "適用",
+  "fullscreenplus.option.fullscreen_mode": "フルスクリーンモード",
+  "fullscreenplus.option.fullscreen_mode.tooltip": "フルスクリーンの動作を選択します。ボーダーレスは画面のちらつきなしにAlt+Tabができます。ネイティブは従来の排他フルスクリーンを使用します。",
+
+  "fullscreenplus.mode.borderless": "ボーダーレス",
+  "fullscreenplus.mode.native": "ネイティブ",
+  "fullscreenplus.mode.exclusive_borderless": "排他ボーダーレス",
+
+  "fullscreenplus.notification.mode_changed": "フルスクリーンモード: %s",
+  "fullscreenplus.notification.windowed": "ウィンドウモードに切り替えました",
+  "fullscreenplus.notification.settings_saved": "設定を保存しました"
+}

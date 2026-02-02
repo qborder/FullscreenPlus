@@ -1,13 +1,65 @@
 {
+  "fullscreenplus.name": "Fullscreen+",
+  "fullscreenplus.options.title": "顯示",
+  "fullscreenplus.options.group.display": "全螢幕",
+  "fullscreenplus.options.group.performance": "效能",
+  "fullscreenplus.options.group.window": "視窗",
+  "fullscreenplus.options.group.advanced": "進階",
+
+  "fullscreenplus.config.heading.mode": "全螢幕模式",
+  "fullscreenplus.config.heading.customization": "自訂視窗大小",
+  "fullscreenplus.config.heading.performance": "效能",
+  "fullscreenplus.config.heading.window": "視窗管理",
+  "fullscreenplus.config.heading.advanced": "進階",
+
   "fullscreenplus.config.customization.enabled": "啟用客製化",
+  "fullscreenplus.config.customization.enabled.tooltip": "在無邊框模式下啟用自訂視窗位置和大小。",
   "fullscreenplus.config.customization.related": "顯示器相對座標",
+  "fullscreenplus.config.customization.related.tooltip": "使用相對於顯示器的座標而不是絕對螢幕位置。",
   "fullscreenplus.config.customization.x": "X 座標",
   "fullscreenplus.config.customization.y": "Y 座標",
   "fullscreenplus.config.customization.width": "寬度",
   "fullscreenplus.config.customization.height": "高度",
+
+  "fullscreenplus.config.dynamic_resolution": "動態解析度",
+  "fullscreenplus.config.dynamic_resolution.tooltip": "以較低的內部解析度渲染以提高效能，同時保持視窗大小。",
+  "fullscreenplus.config.render_scale": "渲染比例",
+  "fullscreenplus.config.render_scale.tooltip": "原生解析度的百分比。越低效能越好。",
+
+  "fullscreenplus.config.ultrawide_support": "超寬螢幕支援",
+  "fullscreenplus.config.ultrawide_support.tooltip": "為21:9、32:9等超寬螢幕長寬比啟用特殊處理。",
+
+  "fullscreenplus.config.hdr_passthrough": "HDR直通",
+  "fullscreenplus.config.hdr_passthrough.tooltip": "在無邊框模式下允許HDR訊號通過。需要HDR顯示器和Windows 11。",
+
+  "fullscreenplus.config.refresh_rate_override": "更新率覆蓋",
+  "fullscreenplus.config.refresh_rate_override.tooltip": "強制使用特定更新率而不是使用顯示器預設值。",
+  "fullscreenplus.config.refresh_rate": "更新率",
+  "fullscreenplus.config.refresh_rate.tooltip": "目標更新率（Hz）。",
+
+  "fullscreenplus.config.windowed_borderless": "視窗化無邊框",
+  "fullscreenplus.config.windowed_borderless.tooltip": "使用自訂大小的無邊框視窗而不是全螢幕。",
+  "fullscreenplus.config.windowed_borderless_width": "視窗寬度",
+  "fullscreenplus.config.windowed_borderless_height": "視窗高度",
+
+  "fullscreenplus.config.window_title": "自訂視窗標題",
+  "fullscreenplus.config.window_title.tooltip": "設定自訂視窗標題。留空使用預設值。",
+
+  "fullscreenplus.config.low_latency": "低延遲模式",
+  "fullscreenplus.config.low_latency.tooltip": "透過最佳化視窗合成來減少輸入延遲。",
+
+  "fullscreenplus.config.show_notifications": "顯示通知",
+  "fullscreenplus.config.show_notifications.tooltip": "全螢幕模式更改時顯示提示通知。",
+
   "fullscreenplus.option.apply": "套用",
   "fullscreenplus.option.fullscreen_mode": "全螢幕模式",
-  "fullscreenplus.option.fullscreen_mode.tooltip": "全螢幕模式決定了全螢幕功能要使用無邊框全螢幕還是原生全螢幕。",
-  "fullscreenplus.option.fullscreen_mode.borderless": "無邊框",
-  "fullscreenplus.option.fullscreen_mode.native": "原生"
+  "fullscreenplus.option.fullscreen_mode.tooltip": "選擇全螢幕的工作方式。無邊框允許Alt+Tab無閃爍。原生使用傳統的獨占全螢幕。獨占無邊框結合兩者優點。",
+
+  "fullscreenplus.mode.borderless": "無邊框",
+  "fullscreenplus.mode.native": "原生",
+  "fullscreenplus.mode.exclusive_borderless": "獨占無邊框",
+
+  "fullscreenplus.notification.mode_changed": "全螢幕模式: %s",
+  "fullscreenplus.notification.windowed": "已切換到視窗模式",
+  "fullscreenplus.notification.settings_saved": "設定已儲存"
 }
