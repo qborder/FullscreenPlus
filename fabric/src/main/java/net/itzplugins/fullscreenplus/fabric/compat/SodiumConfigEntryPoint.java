@@ -90,7 +90,7 @@ public class SodiumConfigEntryPoint implements ConfigEntryPoint {
                                                                                 .setBinding(
                                                                                                 value -> config.windowedBorderless = value,
                                                                                                 () -> config.windowedBorderless)
-                                                                                .setDefaultValue(false)))
+                                                                                .setDefaultValue(true)))
                                                 .addOptionGroup(builder.createOptionGroup()
                                                                 .setName(Text.translatable(
                                                                                 "fullscreenplus.options.group.advanced"))
@@ -145,6 +145,6 @@ public class SodiumConfigEntryPoint implements ConfigEntryPoint {
                                                                                 .setBinding(
                                                                                                 value -> config.showNotifications = value,
                                                                                                 () -> config.showNotifications)
-                                                                                .setDefaultValue(true))));
+                                                                                .setDefaultValue(false))));
         }
 }

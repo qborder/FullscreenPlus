@@ -53,7 +53,7 @@ public class FullscreenPlusConfigFabric implements Config {
     public boolean refreshRateOverride = false;
     public int refreshRate = 60;
 
-    public boolean windowedBorderless = false;
+    public boolean windowedBorderless = true;
     public int windowedBorderlessWidth = 1280;
     public int windowedBorderlessHeight = 720;
 
@@ -62,7 +62,7 @@ public class FullscreenPlusConfigFabric implements Config {
 
     public boolean lowLatencyMode = false;
 
-    public boolean showNotifications = true;
+    public boolean showNotifications = false;
 
     public int lastWindowX = 0;
     public int lastWindowY = 0;

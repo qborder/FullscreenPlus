@@ -99,12 +99,22 @@ public abstract class WindowMixin {
 
     @Inject(method = "updateWindowRegion", at = @At("HEAD"), cancellable = true)
     private void onUpdateWindowRegion(CallbackInfo ci) {
-        ci.cancel();
-
         FullscreenPlusConstants.LOGGER.info("================= [Fullscreen+ Start] =================");
 
         long handle = getHandle();
         FullscreenPlusConfigFabric config = FullscreenPlusConfigFabric.getInstance();
+        FullscreenMode mode = config.fullscreen;
+
+        if (mode == FullscreenMode.NATIVE) {
+            FullscreenPlusConstants.LOGGER.info("Using NATIVE fullscreen (Minecraft default)");
+            if (config.showNotifications && fullscreen && !wasFullscreen)
+                FullscreenPlusNotifications.showModeChanged(mode);
+            wasFullscreen = fullscreen;
+            FullscreenPlusConstants.LOGGER.info("================= [Fullscreen+ End] =================");
+            return;
+        }
+
+        ci.cancel();
 
         if (!wasFullscreen && !fullscreen) {
             int[] x = new int[1];
@@ -125,14 +135,7 @@ public abstract class WindowMixin {
         }
 
         if (fullscreen) {
-            FullscreenMode mode = config.fullscreen;
-
-            if (mode == FullscreenMode.NATIVE) {
-                FullscreenPlusConstants.LOGGER.info("Switching to NATIVE fullscreen");
-                fullscreenplus$applyNativeFullscreen(handle, config);
-                if (config.showNotifications)
-                    FullscreenPlusNotifications.showModeChanged(mode);
-            } else if (mode == FullscreenMode.EXCLUSIVE_BORDERLESS) {
+            if (mode == FullscreenMode.EXCLUSIVE_BORDERLESS) {
                 FullscreenPlusConstants.LOGGER.info("Switching to EXCLUSIVE BORDERLESS fullscreen");
                 fullscreenplus$applyExclusiveBorderless(handle, config);
                 if (config.showNotifications)
@@ -160,18 +163,6 @@ public abstract class WindowMixin {
         FullscreenPlusConstants.LOGGER.info("================= [Fullscreen+ End] =================");
     }
 
-    @Unique
-    private void fullscreenplus$applyNativeFullscreen(long handle, FullscreenPlusConfigFabric config) {
-        long monitor = glfwGetPrimaryMonitor();
-        Monitor monitorInstance = monitorTracker.getMonitor(monitor);
-        if (monitorInstance != null) {
-            VideoMode videoMode = monitorInstance.getCurrentVideoMode();
-            int refreshRate = config.refreshRateOverride ? config.refreshRate : videoMode.getRefreshRate();
-            glfwSetWindowMonitor(handle, monitor, 0, 0, videoMode.getWidth(), videoMode.getHeight(), refreshRate);
-            FullscreenPlusConstants.LOGGER.info("Native applied: {}x{} @{}Hz", videoMode.getWidth(),
-                    videoMode.getHeight(), refreshRate);
-        }
-    }
 
     @Unique
     private void fullscreenplus$applyExclusiveBorderless(long handle, FullscreenPlusConfigFabric config) {
@@ -228,10 +219,15 @@ public abstract class WindowMixin {
                 FullscreenPlusConstants.LOGGER.info("HDR passthrough enabled");
             }
 
+            if (glfwGetWindowMonitor(handle) != 0L) {
+                glfwSetWindowMonitor(handle, 0L, 0, 0, monitorWidth, monitorHeight, GLFW_DONT_CARE);
+            }
+
             int[] finalDimensions = fullscreenplus$calculateDimensions(config, monitorX, monitorY, monitorWidth,
                     monitorHeight);
 
             glfwSetWindowAttrib(handle, GLFW_DECORATED, GLFW_FALSE);
+            glfwSetWindowAttrib(handle, GLFW_FLOATING, GLFW_FALSE);
             glfwSetWindowPos(handle, finalDimensions[0], finalDimensions[1]);
             glfwSetWindowSize(handle, finalDimensions[2], finalDimensions[3]);
 
@@ -266,7 +262,11 @@ public abstract class WindowMixin {
 
     @Unique
     private void fullscreenplus$applyWindowedBorderless(long handle, FullscreenPlusConfigFabric config) {
-        glfwSetWindowAttrib(handle, GLFW_DECORATED, GLFW_FALSE);
+        if (glfwGetWindowMonitor(handle) != 0L) {
+            glfwSetWindowMonitor(handle, 0L, windowPosX, windowPosY, windowWidth, windowHeight, GLFW_DONT_CARE);
+        }
+
+        glfwSetWindowAttrib(handle, GLFW_DECORATED, GLFW_TRUE);
         glfwSetWindowAttrib(handle, GLFW_FLOATING, GLFW_FALSE);
 
         int width = config.windowedBorderlessWidth;
