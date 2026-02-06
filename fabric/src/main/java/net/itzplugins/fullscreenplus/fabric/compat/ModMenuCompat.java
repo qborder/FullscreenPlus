@@ -71,6 +71,29 @@ public class ModMenuCompat implements ModMenuApi {
                                     )
                                     .controller(TickBoxControllerBuilder::create)
                                     .build())
+                            .option(Option.<Boolean>createBuilder()
+                                    .name(Text.translatable("fullscreenplus.config.unfocused_fps_limit"))
+                                    .description(OptionDescription.of(Text.translatable("fullscreenplus.config.unfocused_fps_limit.tooltip")))
+                                    .binding(
+                                            true,
+                                            () -> config.unfocusedFpsLimit,
+                                            value -> config.unfocusedFpsLimit = value
+                                    )
+                                    .controller(TickBoxControllerBuilder::create)
+                                    .build())
+                            .option(Option.<Integer>createBuilder()
+                                    .name(Text.translatable("fullscreenplus.config.unfocused_fps_max"))
+                                    .description(OptionDescription.of(Text.translatable("fullscreenplus.config.unfocused_fps_max.tooltip")))
+                                    .binding(
+                                            15,
+                                            () -> config.unfocusedFpsMax,
+                                            value -> config.unfocusedFpsMax = value
+                                    )
+                                    .controller(opt -> IntegerSliderControllerBuilder.create(opt)
+                                            .range(1, 60)
+                                            .step(1)
+                                            .formatValue(v -> Text.literal(v + " FPS")))
+                                    .build())
                             .build())
                     .category(ConfigCategory.createBuilder()
                             .name(Text.translatable("fullscreenplus.options.group.window"))
@@ -184,6 +207,26 @@ public class ModMenuCompat implements ModMenuApi {
                                             .range(0, 4)
                                             .step(1)
                                             .formatValue(v -> Text.literal(v == 0 ? "Auto" : "Monitor " + v)))
+                                    .build())
+                            .option(Option.<Boolean>createBuilder()
+                                    .name(Text.translatable("fullscreenplus.config.cycle_modes_keybind"))
+                                    .description(OptionDescription.of(Text.translatable("fullscreenplus.config.cycle_modes_keybind.tooltip")))
+                                    .binding(
+                                            false,
+                                            () -> config.cycleModesKeybind,
+                                            value -> config.cycleModesKeybind = value
+                                    )
+                                    .controller(TickBoxControllerBuilder::create)
+                                    .build())
+                            .option(Option.<Boolean>createBuilder()
+                                    .name(Text.translatable("fullscreenplus.config.cursor_confinement"))
+                                    .description(OptionDescription.of(Text.translatable("fullscreenplus.config.cursor_confinement.tooltip")))
+                                    .binding(
+                                            false,
+                                            () -> config.cursorConfinement,
+                                            value -> config.cursorConfinement = value
+                                    )
+                                    .controller(TickBoxControllerBuilder::create)
                                     .build())
                             .build())
                     .category(ConfigCategory.createBuilder()

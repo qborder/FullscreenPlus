@@ -10,7 +10,8 @@
     "WindowMixin",
     "VulkanWindowMixin",
     "OptionsMixin",
-    "GLFWMixin"
+    "GLFWMixin",
+    "MinecraftClientMixin"
   ],
   "server": [],
   "injectors": {

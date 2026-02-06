@@ -26,6 +26,9 @@ public class FullscreenPlusFabricMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.equals("net.itzplugins.fullscreenplus.fabric.mixin.MinecraftClientMixin")) {
+            return true;
+        }
         if (FabricLoader.getInstance().isModLoaded("vulkanmod")) {
             return mixinClassName.equals("net.itzplugins.fullscreenplus.fabric.mixin.VulkanWindowMixin") ||
                     mixinClassName.equals("net.itzplugins.fullscreenplus.fabric.mixin.OptionsMixin") ||

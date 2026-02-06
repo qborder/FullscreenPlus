@@ -164,8 +164,6 @@ public abstract class WindowMixin {
             return;
         }
 
-        ci.cancel();
-
         if (!wasFullscreen && !fullscreen) {
             int[] x = new int[1];
             int[] y = new int[1];
@@ -182,7 +180,12 @@ public abstract class WindowMixin {
             fullscreenplus$saveWindowState();
             FullscreenPlusConstants.LOGGER.info("Cached window state: pos={},{} size={}x{}", windowPosX, windowPosY,
                     windowWidth, windowHeight);
+            wasFullscreen = fullscreen;
+            FullscreenPlusConstants.LOGGER.info("================= [Fullscreen+ End] =================");
+            return;
         }
+
+        ci.cancel();
 
         if (fullscreen) {
             if (mode == FullscreenMode.EXCLUSIVE_BORDERLESS) {
@@ -196,7 +199,9 @@ public abstract class WindowMixin {
                 if (config.showNotifications)
                     FullscreenPlusNotifications.showModeChanged(mode);
             }
+            fullscreenplus$applyCursorConfinement(handle, config);
         } else {
+            fullscreenplus$releaseCursorConfinement(handle);
             if (config.windowedBorderless) {
                 FullscreenPlusConstants.LOGGER.info("Switching to WINDOWED BORDERLESS mode");
                 fullscreenplus$applyWindowedBorderless(handle, config);
@@ -350,5 +355,18 @@ public abstract class WindowMixin {
 
         FullscreenPlusConstants.LOGGER.info("Windowed applied: pos={},{} size={}x{}", windowPosX, windowPosY,
                 windowWidth, windowHeight);
+    }
+
+    @Unique
+    private void fullscreenplus$applyCursorConfinement(long handle, FullscreenPlusConfigFabric config) {
+        if (config.cursorConfinement) {
+            glfwSetInputMode(handle, GLFW_CURSOR, GLFW_CURSOR_CAPTURED);
+            FullscreenPlusConstants.LOGGER.info("Cursor confinement enabled");
+        }
+    }
+
+    @Unique
+    private void fullscreenplus$releaseCursorConfinement(long handle) {
+        glfwSetInputMode(handle, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     }
 }

@@ -54,6 +54,20 @@
   "fullscreenplus.config.preferred_monitor": "Preferred Monitor",
   "fullscreenplus.config.preferred_monitor.tooltip": "Which monitor to use for fullscreen. 0 = auto-detect (uses whichever monitor the window is on). 1, 2, 3... = specific monitor.",
 
+  "fullscreenplus.config.unfocused_fps_limit": "Unfocused FPS Limit",
+  "fullscreenplus.config.unfocused_fps_limit.tooltip": "Limit FPS when the game window is not focused. Saves GPU and CPU when alt-tabbed.",
+  "fullscreenplus.config.unfocused_fps_max": "Unfocused FPS Cap",
+  "fullscreenplus.config.unfocused_fps_max.tooltip": "Maximum FPS when the window is unfocused.",
+
+  "fullscreenplus.config.cycle_modes_keybind": "Cycle Modes Keybind",
+  "fullscreenplus.config.cycle_modes_keybind.tooltip": "Enable the F10 keybind to cycle through fullscreen modes (Borderless → Exclusive Borderless → Native). Rebindable in controls.",
+
+  "fullscreenplus.config.cursor_confinement": "Cursor Confinement",
+  "fullscreenplus.config.cursor_confinement.tooltip": "Lock the cursor to the game window when in borderless fullscreen. Prevents the cursor from escaping to other monitors.",
+
+  "fullscreenplus.key.cycle_modes": "Cycle Fullscreen Modes",
+  "fullscreenplus.key.category": "Fullscreen+",
+
   "fullscreenplus.option.apply": "Apply",
   "fullscreenplus.option.fullscreen_mode": "Fullscreen Mode",
   "fullscreenplus.option.fullscreen_mode.tooltip": "Choose how fullscreen works. Borderless lets you alt-tab without screen flickering. Native uses traditional exclusive fullscreen. Exclusive Borderless combines both benefits.",

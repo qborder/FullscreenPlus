@@ -66,6 +66,13 @@ public class FullscreenPlusConfigFabric implements Config {
 
     public int preferredMonitor = 0;
 
+    public boolean unfocusedFpsLimit = true;
+    public int unfocusedFpsMax = 15;
+
+    public boolean cycleModesKeybind = false;
+
+    public boolean cursorConfinement = false;
+
     public int lastWindowX = 0;
     public int lastWindowY = 0;
     public int lastWindowWidth = 854;
