@@ -172,6 +172,19 @@ public class ModMenuCompat implements ModMenuApi {
                                     )
                                     .controller(TickBoxControllerBuilder::create)
                                     .build())
+                            .option(Option.<Integer>createBuilder()
+                                    .name(Text.translatable("fullscreenplus.config.preferred_monitor"))
+                                    .description(OptionDescription.of(Text.translatable("fullscreenplus.config.preferred_monitor.tooltip")))
+                                    .binding(
+                                            0,
+                                            () -> config.preferredMonitor,
+                                            value -> config.preferredMonitor = value
+                                    )
+                                    .controller(opt -> IntegerSliderControllerBuilder.create(opt)
+                                            .range(0, 4)
+                                            .step(1)
+                                            .formatValue(v -> Text.literal(v == 0 ? "Auto" : "Monitor " + v)))
+                                    .build())
                             .build())
                     .category(ConfigCategory.createBuilder()
                             .name(Text.translatable("fullscreenplus.config.heading.customization"))

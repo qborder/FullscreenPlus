@@ -11,6 +11,8 @@ import net.itzplugins.fullscreenplus.FullscreenMode;
 import net.itzplugins.fullscreenplus.FullscreenPlusNotifications;
 import net.itzplugins.fullscreenplus.fabric.FullscreenPlusFabricCaching;
 import net.itzplugins.fullscreenplus.fabric.config.FullscreenPlusConfigFabric;
+import org.lwjgl.PointerBuffer;
+import org.lwjgl.glfw.GLFWVidMode;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -97,6 +99,54 @@ public abstract class WindowMixin {
         config.save();
     }
 
+    @Unique
+    private long fullscreenplus$getTargetMonitor(long windowHandle) {
+        FullscreenPlusConfigFabric config = FullscreenPlusConfigFabric.getInstance();
+
+        if (config.preferredMonitor > 0) {
+            PointerBuffer monitors = glfwGetMonitors();
+            if (monitors != null && config.preferredMonitor <= monitors.limit()) {
+                long mon = monitors.get(config.preferredMonitor - 1);
+                FullscreenPlusConstants.LOGGER.info("using preferred monitor index {}", config.preferredMonitor);
+                return mon;
+            }
+        }
+
+        int[] wx = new int[1], wy = new int[1];
+        int[] ww = new int[1], wh = new int[1];
+        glfwGetWindowPos(windowHandle, wx, wy);
+        glfwGetWindowSize(windowHandle, ww, wh);
+
+        PointerBuffer monitors = glfwGetMonitors();
+        if (monitors == null) return glfwGetPrimaryMonitor();
+
+        long bestMonitor = glfwGetPrimaryMonitor();
+        int bestOverlap = 0;
+
+        for (int i = 0; i < monitors.limit(); i++) {
+            long mon = monitors.get(i);
+            int[] mx = new int[1], my = new int[1];
+            glfwGetMonitorPos(mon, mx, my);
+            GLFWVidMode vidMode = glfwGetVideoMode(mon);
+            if (vidMode == null) continue;
+
+            int mw = vidMode.width();
+            int mh = vidMode.height();
+
+            int overlapX = Math.max(0, Math.min(wx[0] + ww[0], mx[0] + mw) - Math.max(wx[0], mx[0]));
+            int overlapY = Math.max(0, Math.min(wy[0] + wh[0], my[0] + mh) - Math.max(wy[0], my[0]));
+            int overlap = overlapX * overlapY;
+
+            if (overlap > bestOverlap) {
+                bestOverlap = overlap;
+                bestMonitor = mon;
+            }
+        }
+
+        FullscreenPlusConstants.LOGGER.info("Auto-detected monitor: handle={}", bestMonitor);
+        return bestMonitor;
+    }
+
     @Inject(method = "updateWindowRegion", at = @At("HEAD"), cancellable = true)
     private void onUpdateWindowRegion(CallbackInfo ci) {
         FullscreenPlusConstants.LOGGER.info("================= [Fullscreen+ Start] =================");
@@ -166,7 +216,7 @@ public abstract class WindowMixin {
 
     @Unique
     private void fullscreenplus$applyExclusiveBorderless(long handle, FullscreenPlusConfigFabric config) {
-        long monitor = glfwGetPrimaryMonitor();
+        long monitor = fullscreenplus$getTargetMonitor(handle);
         Monitor monitorInstance = monitorTracker.getMonitor(monitor);
 
         if (monitorInstance != null) {
@@ -195,7 +245,7 @@ public abstract class WindowMixin {
 
     @Unique
     private void fullscreenplus$applyBorderlessFullscreen(long handle, FullscreenPlusConfigFabric config) {
-        long monitor = glfwGetPrimaryMonitor();
+        long monitor = fullscreenplus$getTargetMonitor(handle);
         Monitor monitorInstance = monitorTracker.getMonitor(monitor);
 
         if (monitorInstance != null) {
@@ -272,7 +322,7 @@ public abstract class WindowMixin {
         int width = config.windowedBorderlessWidth;
         int height = config.windowedBorderlessHeight;
 
-        long monitor = glfwGetPrimaryMonitor();
+        long monitor = fullscreenplus$getTargetMonitor(handle);
         Monitor monitorInstance = monitorTracker.getMonitor(monitor);
         if (monitorInstance != null) {
             VideoMode videoMode = monitorInstance.getCurrentVideoMode();

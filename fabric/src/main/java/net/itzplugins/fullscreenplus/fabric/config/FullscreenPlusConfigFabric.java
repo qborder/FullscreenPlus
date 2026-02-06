@@ -64,6 +64,8 @@ public class FullscreenPlusConfigFabric implements Config {
 
     public boolean showNotifications = false;
 
+    public int preferredMonitor = 0;
+
     public int lastWindowX = 0;
     public int lastWindowY = 0;
     public int lastWindowWidth = 854;

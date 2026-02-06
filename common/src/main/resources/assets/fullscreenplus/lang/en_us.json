@@ -51,6 +51,9 @@
   "fullscreenplus.config.show_notifications": "Show Notifications",
   "fullscreenplus.config.show_notifications.tooltip": "Show toast notifications when fullscreen mode changes.",
 
+  "fullscreenplus.config.preferred_monitor": "Preferred Monitor",
+  "fullscreenplus.config.preferred_monitor.tooltip": "Which monitor to use for fullscreen. 0 = auto-detect (uses whichever monitor the window is on). 1, 2, 3... = specific monitor.",
+
   "fullscreenplus.option.apply": "Apply",
   "fullscreenplus.option.fullscreen_mode": "Fullscreen Mode",
   "fullscreenplus.option.fullscreen_mode.tooltip": "Choose how fullscreen works. Borderless lets you alt-tab without screen flickering. Native uses traditional exclusive fullscreen. Exclusive Borderless combines both benefits.",
