@@ -303,9 +303,9 @@ public abstract class WindowMixin {
             finalHeight = config.height;
         } else {
             finalX = monitorX;
-            finalY = monitorY;
+            finalY = monitorY - 1;
             finalWidth = monitorWidth;
-            finalHeight = monitorHeight;
+            finalHeight = monitorHeight + 1;
         }
 
         if (config.dynamicResolution && config.renderScale < 100) {
