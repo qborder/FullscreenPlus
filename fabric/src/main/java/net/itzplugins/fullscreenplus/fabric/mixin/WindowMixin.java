@@ -222,73 +222,101 @@ public abstract class WindowMixin {
     @Unique
     private void fullscreenplus$applyExclusiveBorderless(long handle, FullscreenPlusConfigFabric config) {
         long monitor = fullscreenplus$getTargetMonitor(handle);
-        Monitor monitorInstance = monitorTracker.getMonitor(monitor);
+        int monitorX, monitorY, monitorWidth, monitorHeight;
 
+        Monitor monitorInstance = monitorTracker.getMonitor(monitor);
         if (monitorInstance != null) {
             VideoMode videoMode = monitorInstance.getCurrentVideoMode();
-            int monitorX = monitorInstance.getViewportX();
-            int monitorY = monitorInstance.getViewportY();
-            int monitorWidth = videoMode.getWidth();
-            int monitorHeight = videoMode.getHeight();
-
-            glfwSetWindowAttrib(handle, GLFW_DECORATED, GLFW_FALSE);
-            glfwSetWindowAttrib(handle, GLFW_FLOATING, GLFW_TRUE);
-
-            if (config.hdrPassthrough) {
-                FullscreenPlusConstants.LOGGER.info("HDR passthrough enabled");
-            }
-
-            int[] finalDimensions = fullscreenplus$calculateDimensions(config, monitorX, monitorY, monitorWidth,
-                    monitorHeight);
-            glfwSetWindowPos(handle, finalDimensions[0], finalDimensions[1]);
-            glfwSetWindowSize(handle, finalDimensions[2], finalDimensions[3]);
-
-            FullscreenPlusConstants.LOGGER.info("Exclusive Borderless applied: pos={},{} size={}x{}",
-                    finalDimensions[0], finalDimensions[1], finalDimensions[2], finalDimensions[3]);
+            monitorX = monitorInstance.getViewportX();
+            monitorY = monitorInstance.getViewportY();
+            monitorWidth = videoMode.getWidth();
+            monitorHeight = videoMode.getHeight();
+        } else {
+            int[] mx = new int[1], my = new int[1];
+            glfwGetMonitorPos(monitor, mx, my);
+            GLFWVidMode vidMode = glfwGetVideoMode(monitor);
+            if (vidMode == null) return;
+            monitorX = mx[0];
+            monitorY = my[0];
+            monitorWidth = vidMode.width();
+            monitorHeight = vidMode.height();
+            FullscreenPlusConstants.LOGGER.warn("MonitorTracker returned null, using raw GLFW data");
         }
+
+        if (glfwGetWindowMonitor(handle) != 0L) {
+            glfwSetWindowMonitor(handle, 0L, monitorX, monitorY, monitorWidth, monitorHeight, GLFW_DONT_CARE);
+        }
+
+        glfwSetWindowAttrib(handle, GLFW_DECORATED, GLFW_FALSE);
+        glfwSetWindowAttrib(handle, GLFW_FLOATING, GLFW_TRUE);
+        glfwSetWindowAttrib(handle, GLFW_AUTO_ICONIFY, GLFW_FALSE);
+
+        if (config.hdrPassthrough) {
+            FullscreenPlusConstants.LOGGER.info("HDR passthrough enabled");
+        }
+
+        int[] finalDimensions = fullscreenplus$calculateDimensions(config, monitorX, monitorY, monitorWidth,
+                monitorHeight);
+        glfwSetWindowPos(handle, finalDimensions[0], finalDimensions[1]);
+        glfwSetWindowSize(handle, finalDimensions[2], finalDimensions[3]);
+
+        FullscreenPlusConstants.LOGGER.info("Exclusive Borderless applied: pos={},{} size={}x{}",
+                finalDimensions[0], finalDimensions[1], finalDimensions[2], finalDimensions[3]);
     }
 
     @Unique
     private void fullscreenplus$applyBorderlessFullscreen(long handle, FullscreenPlusConfigFabric config) {
         long monitor = fullscreenplus$getTargetMonitor(handle);
-        Monitor monitorInstance = monitorTracker.getMonitor(monitor);
+        int monitorX, monitorY, monitorWidth, monitorHeight;
 
+        Monitor monitorInstance = monitorTracker.getMonitor(monitor);
         if (monitorInstance != null) {
             VideoMode videoMode = monitorInstance.getCurrentVideoMode();
-            int monitorX = monitorInstance.getViewportX();
-            int monitorY = monitorInstance.getViewportY();
-            int monitorWidth = videoMode.getWidth();
-            int monitorHeight = videoMode.getHeight();
-
-            FullscreenPlusConstants.LOGGER.info("Monitor: pos={},{} size={}x{}", monitorX, monitorY, monitorWidth,
-                    monitorHeight);
-
-            if (config.ultrawideSupport) {
-                float aspectRatio = (float) monitorWidth / monitorHeight;
-                if (aspectRatio >= 2.3f) {
-                    FullscreenPlusConstants.LOGGER.info("Ultrawide detected: aspect ratio {}", aspectRatio);
-                }
-            }
-
-            if (config.hdrPassthrough) {
-                FullscreenPlusConstants.LOGGER.info("HDR passthrough enabled");
-            }
-
-            if (glfwGetWindowMonitor(handle) != 0L) {
-                glfwSetWindowMonitor(handle, 0L, 0, 0, monitorWidth, monitorHeight, GLFW_DONT_CARE);
-            }
-
-            int[] finalDimensions = fullscreenplus$calculateDimensions(config, monitorX, monitorY, monitorWidth,
-                    monitorHeight);
-
-            glfwSetWindowAttrib(handle, GLFW_DECORATED, GLFW_FALSE);
-            glfwSetWindowAttrib(handle, GLFW_FLOATING, GLFW_FALSE);
-            glfwSetWindowPos(handle, finalDimensions[0], finalDimensions[1]);
-            glfwSetWindowSize(handle, finalDimensions[2], finalDimensions[3]);
-
-            FullscreenPlusConstants.LOGGER.info("Borderless applied: pos={},{} size={}x{}",
-                    finalDimensions[0], finalDimensions[1], finalDimensions[2], finalDimensions[3]);
+            monitorX = monitorInstance.getViewportX();
+            monitorY = monitorInstance.getViewportY();
+            monitorWidth = videoMode.getWidth();
+            monitorHeight = videoMode.getHeight();
+        } else {
+            int[] mx = new int[1], my = new int[1];
+            glfwGetMonitorPos(monitor, mx, my);
+            GLFWVidMode vidMode = glfwGetVideoMode(monitor);
+            if (vidMode == null) return;
+            monitorX = mx[0];
+            monitorY = my[0];
+            monitorWidth = vidMode.width();
+            monitorHeight = vidMode.height();
+            FullscreenPlusConstants.LOGGER.warn("MonitorTracker returned null, using raw GLFW data");
         }
+
+        FullscreenPlusConstants.LOGGER.info("Monitor: pos={},{} size={}x{}", monitorX, monitorY, monitorWidth,
+                monitorHeight);
+
+        if (config.ultrawideSupport) {
+            float aspectRatio = (float) monitorWidth / monitorHeight;
+            if (aspectRatio >= 2.3f) {
+                FullscreenPlusConstants.LOGGER.info("Ultrawide detected: aspect ratio {}", aspectRatio);
+            }
+        }
+
+        if (config.hdrPassthrough) {
+            FullscreenPlusConstants.LOGGER.info("HDR passthrough enabled");
+        }
+
+        if (glfwGetWindowMonitor(handle) != 0L) {
+            glfwSetWindowMonitor(handle, 0L, monitorX, monitorY, monitorWidth, monitorHeight, GLFW_DONT_CARE);
+        }
+
+        int[] finalDimensions = fullscreenplus$calculateDimensions(config, monitorX, monitorY, monitorWidth,
+                monitorHeight);
+
+        glfwSetWindowAttrib(handle, GLFW_DECORATED, GLFW_FALSE);
+        glfwSetWindowAttrib(handle, GLFW_FLOATING, GLFW_FALSE);
+        glfwSetWindowAttrib(handle, GLFW_AUTO_ICONIFY, GLFW_FALSE);
+        glfwSetWindowPos(handle, finalDimensions[0], finalDimensions[1]);
+        glfwSetWindowSize(handle, finalDimensions[2], finalDimensions[3]);
+
+        FullscreenPlusConstants.LOGGER.info("Borderless applied: pos={},{} size={}x{}",
+                finalDimensions[0], finalDimensions[1], finalDimensions[2], finalDimensions[3]);
     }
 
     @Unique
