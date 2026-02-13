@@ -26,12 +26,27 @@ public class FullscreenPlusFabric implements ClientModInitializer {
     public void onInitializeClient() {
         FullscreenPlus.init();
 
-        cycleModesKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "fullscreenplus.key.cycle_modes",
-                InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_F10,
-                KeyBinding.Category.create(Identifier.of("fullscreenplus", "fullscreenplus"))
-        ));
+        try {
+            cycleModesKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                    "fullscreenplus.key.cycle_modes",
+                    InputUtil.Type.KEYSYM,
+                    GLFW.GLFW_KEY_F10,
+                    KeyBinding.Category.create(Identifier.of("fullscreenplus", "fullscreenplus"))
+            ));
+        } catch (NoClassDefFoundError e) {
+            try {
+                var ctor = KeyBinding.class.getDeclaredConstructor(
+                        String.class, InputUtil.Type.class, int.class, String.class);
+                cycleModesKey = KeyBindingHelper.registerKeyBinding(ctor.newInstance(
+                        "fullscreenplus.key.cycle_modes",
+                        InputUtil.Type.KEYSYM,
+                        GLFW.GLFW_KEY_F10,
+                        "fullscreenplus.key.category"
+                ));
+            } catch (Exception ex) {
+                FullscreenPlusConstants.LOGGER.error("failed to register cycle modes keybind", ex);
+            }
+        }
 
         if (System.getProperty("fullscreenplus.borderless") != null) {
             FullscreenPlusConstants.LOGGER.info("--borderless flag detected, forcing borderless mode");
@@ -41,7 +56,7 @@ public class FullscreenPlusFabric implements ClientModInitializer {
         }
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (cycleModesKey.wasPressed()) {
+            if (cycleModesKey != null && cycleModesKey.wasPressed()) {
                 FullscreenPlusConfigFabric config = FullscreenPlusConfigFabric.getInstance();
                 if (!config.cycleModesKeybind) return;
 
